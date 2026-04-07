@@ -4,3 +4,4 @@ wall.json
 usernames.json
 wall_full.json
 node_modules
+*.deb
