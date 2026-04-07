@@ -3,6 +3,7 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { registerSnapHandler } from "@farcaster/snap-hono";
+import { rateLimit } from "./ratelimit.js";
 import { loadWall, saveWall, loadUsernames, saveUsernames } from "./db.js";
 import { writeFileSync, existsSync } from "fs";
 
@@ -180,6 +181,7 @@ function buildView(base: string, viewerFid: number, justEntered: boolean = false
 
 const app = new Hono();
 
+app.use("*", rateLimit(20));
 app.use("*", cors({ origin: "*", allowMethods: ["GET", "POST", "OPTIONS"], allowHeaders: ["Accept", "Content-Type", "Authorization"] }));
 
 app.get("/", async (c) => {
