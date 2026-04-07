@@ -1,0 +1,10 @@
+name = "community-snap"
+main = "src/worker.ts"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "cbb7a741442a44638974c0a040c17c5f"
+preview_id = "cbb7a741442a44638974c0a040c17c5f"
+[vars]
+SNAP_PUBLIC_BASE_URL = "https://community-snap.sonic-visions.workers.dev"
