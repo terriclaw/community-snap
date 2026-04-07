@@ -175,6 +175,20 @@ function buildView(
       props: { content: "You're in the Farcaster Community!", size: "sm", align: "center" },
     };
     pageChildren.push("status");
+    elements["share-btn"] = {
+      type: "button",
+      props: { label: "Share", variant: "secondary", icon: "share" },
+      on: {
+        press: {
+          action: "compose_cast",
+          params: {
+            text: "I'm one of the 37 Farcaster community members! Join Us!",
+            embeds: [`${base}`],
+          },
+        },
+      },
+    };
+    pageChildren.push("share-btn");
   } else {
     elements["enter-btn"] = {
       type: "button",
